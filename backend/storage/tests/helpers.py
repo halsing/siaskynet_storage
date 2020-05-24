@@ -11,8 +11,6 @@ def temp_image():
     Returns a new temporary image file
     """
 
-    from PIL import Image
-
     image = Image.new("RGB", (100, 100))
     tmp_file = tempfile.NamedTemporaryFile(suffix=".jpg")
     image.save(tmp_file, "jpeg")

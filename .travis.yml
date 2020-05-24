@@ -12,4 +12,4 @@ before_script:
 
 script:
     - docker-compose exec backend python manage.py test
-    - docker-compose exec backend black --check .
+    - docker-compose exec backend flake8 --config=.flake8
