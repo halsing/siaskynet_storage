@@ -1,0 +1,23 @@
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Python files
+*.pyc
+__pycache__/
+
+
+# Django migration and db files
+migrations/
+db.*
+
+# environment files
+venv*/
+.env*
+env
+chromedriver

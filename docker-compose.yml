@@ -1,0 +1,11 @@
+version: "3.5"
+
+services:
+
+  backend:
+    build: backend
+    ports: 
+      - 5000:5000
+    volumes: 
+      - ./backend:/sia_storage/backend
+    command: bash -c "python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
