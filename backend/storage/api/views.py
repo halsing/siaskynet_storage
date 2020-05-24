@@ -26,6 +26,15 @@ class FileView(
     viewsets.GenericViewSet,
 ):
 
+    """
+    This view allows for :
+    - get a list of current user files
+    - get a file
+    - add new file to storage and generate link to this file in database
+    - delete link to a file from database
+    - change state of the file from no public to public and vice versa
+    """
+
     parser_classes = [parsers.MultiPartParser]
     renderer_classes = [renderers.JSONRenderer, renderers.BrowsableAPIRenderer]
     serializer_class = FileSerializer
@@ -49,8 +58,11 @@ class FileView(
         skylink = Skynet.UploadFile(temp_file)
         serializer.save(file=skylink, owner=self.request.user)
 
-    @action(detail=True, methods=['get'], permission_classes=[IsOwner])
+    @action(detail=True, methods=["get"], permission_classes=[IsOwner])
     def change_public(self, request, pk=None):
+        """
+        Change a state of file from no public to public and vice versa
+        """
         file = get_object_or_404(File, pk=pk)
         file.public = not file.public
         file.save()
@@ -60,6 +72,10 @@ class FileView(
 
 
 class PublicFileView(viewsets.ReadOnlyModelViewSet):
+    """
+    Show all public files
+    """
+
     parser_classes = [parsers.JSONParser]
     permission_classes = [permissions.AllowAny]
     renderer_classes = [renderers.JSONRenderer, renderers.BrowsableAPIRenderer]

@@ -13,7 +13,9 @@ class CustomUserTest(TestCase):
 
     def test_create_user_valid(self):
         """ Test create new common user valid"""
-        user = CustomUser.objects.create_user(email=self.email,username=self.username ,password=self.password)
+        user = CustomUser.objects.create_user(
+            email=self.email, username=self.username, password=self.password
+        )
         self.assertEqual(user.email, self.email, "Correct email")
         self.assertEqual(user.is_active, True)
         self.assertFalse(user.is_staff)

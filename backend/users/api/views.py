@@ -6,6 +6,9 @@ from users.api.serializers import RegistrationSerializer
 
 
 class RegistrationView(APIView):
+    """
+    Register new account
+    """
     permission_classes = (permissions.AllowAny,)
 
     def post(self, request, format=None):

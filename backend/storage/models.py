@@ -23,6 +23,9 @@ class File(models.Model):
         return self.name
 
     def generate_link(self):
+        """
+        Generate link to upload file from siaskynet
+        """
         url = self.file.split("//")[1]
         return f"https://siasky.net/{url}"
 
