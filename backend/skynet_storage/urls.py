@@ -7,7 +7,6 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from rest_framework_swagger.views import get_swagger_view
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi

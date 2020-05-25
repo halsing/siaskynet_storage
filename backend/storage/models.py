@@ -3,8 +3,6 @@ import uuid
 from django.db import models
 from django.conf import settings
 
-from storage.validators import validate_link
-
 
 # Create your models here.
 class Category(models.Model):

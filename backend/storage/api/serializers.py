@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
 from storage.models import File
-from storage.validators import validate_link
 
 
 class FileSerializer(serializers.HyperlinkedModelSerializer):

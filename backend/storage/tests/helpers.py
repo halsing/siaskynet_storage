@@ -1,9 +1,6 @@
 import tempfile
 
-from io import BytesIO
 from PIL import Image
-
-from django.core.files.base import File
 
 
 def temp_image():

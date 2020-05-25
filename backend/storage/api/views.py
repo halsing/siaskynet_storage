@@ -1,14 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, reverse
 from rest_framework import (
-    authentication,
     viewsets,
     permissions,
     parsers,
     renderers,
-    status,
     mixins,
 )
-from rest_framework.response import Response
 from rest_framework.decorators import action
 
 from siaskynet import Skynet
@@ -28,11 +25,11 @@ class FileView(
 
     """
     This view allows for :
-    - get a list of current user files
-    - get a file
-    - add new file to storage and generate link to this file in database
-    - delete link to a file from database
-    - change state of the file from no public to public and vice versa
+    - [GET] - get a list of current user files
+    - [GET] - get a file
+    - [POST] - add new file to storage and generate link to this file in database
+    - [DELETE] - delete link to a file from database
+    - [GET] - change state of the file from no public to public and vice versa
     """
 
     parser_classes = [parsers.MultiPartParser]

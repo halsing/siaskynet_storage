@@ -3,9 +3,6 @@ from rest_framework import status
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from users.models import CustomUser
-from users.api.serializers import RegistrationSerializer
-
 
 class UserRegistrationTest(TestCase):
     def setUp(self):
