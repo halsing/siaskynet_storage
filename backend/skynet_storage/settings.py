@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # third part apps
     "rest_framework",
     "debug_toolbar",
+    "drf_yasg",
     # apps
     "storage.apps.StorageConfig",
     "users.apps.UsersConfig",

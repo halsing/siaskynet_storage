@@ -7,12 +7,20 @@ from storage.validators import validate_link
 
 
 # Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=150, unique=True)
+
+
 class File(models.Model):
     id = models.CharField(
         primary_key=True, max_length=40, default=uuid.uuid4, unique=True, editable=False
     )
     file = models.TextField()
     name = models.CharField(max_length=150)
+    description = models.TextField(blank=True, null=True)
+    category = models.ForeignKey(
+        Category, blank=True, null=True, on_delete=models.SET_NULL
+    )
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, related_name="files", on_delete=models.CASCADE
     )
