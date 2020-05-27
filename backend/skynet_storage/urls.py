@@ -30,6 +30,7 @@ urlpatterns = [
     path("api/storage/", include("storage.api.urls")),
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/", include("search_indexes.api.urls")),
     path("users/", include("users.api.urls")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

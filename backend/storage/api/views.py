@@ -10,9 +10,9 @@ from rest_framework.decorators import action
 
 from siaskynet import Skynet
 
-from storage.models import File
 from storage.api.serializers import FileSerializer
 from storage.api.permissions import IsOwner
+from storage.models import File
 
 
 class FileView(

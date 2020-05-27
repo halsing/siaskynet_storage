@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     # third part apps
     "rest_framework",
     "debug_toolbar",
+    "django_elasticsearch_dsl",
+    "django_elasticsearch_dsl_drf",
     "drf_yasg",
     # apps
+    "search_indexes.apps.SearchIndexesConfig",
     "storage.apps.StorageConfig",
     "users.apps.UsersConfig",
 ]
@@ -142,4 +145,14 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "AUTH_HEADER_TYPES": ("Token",),
+}
+
+# Elasticsearch settings
+ELASTICSEARCH_DSL = {
+    "default": {"hosts": "elasticsearch:9200"},
+}
+
+# Name of the Elasticsearch index
+ELASTICSEARCH_INDEX_NAMES = {
+    "search_indexes.documents.storage": "storage",
 }

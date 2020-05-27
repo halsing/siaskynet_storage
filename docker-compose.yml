@@ -2,6 +2,13 @@ version: "3.5"
 
 services:
 
+  elasticsearch:
+    image: elasticsearch:7.7.0
+    environment:
+      - discovery.type=single-node
+    ports: 
+      - 9200:9200
+
   backend:
     build: backend
     ports: 
@@ -9,3 +16,5 @@ services:
     volumes: 
       - ./backend:/sia_storage/backend
     command: bash -c "python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+    depends_on:
+      - elasticsearch
