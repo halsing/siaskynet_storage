@@ -26,8 +26,9 @@ services:
       do
         sleep 1;
       done;
-      
-      python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+      sleep 3;
+      python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate;
+      python manage.py runserver 0.0.0.0:5000"
 
     depends_on:
       - elasticsearch
