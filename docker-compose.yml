@@ -3,18 +3,34 @@ version: "3.5"
 services:
 
   elasticsearch:
+    hostname: elasticsearch
     image: elasticsearch:7.7.0
+    networks: 
+      - sia_network
     environment:
       - discovery.type=single-node
     ports: 
       - 9200:9200
 
+
   backend:
     build: backend
+    networks: 
+      - sia_network
     ports: 
       - 5000:5000
     volumes: 
       - ./backend:/sia_storage/backend
-    command: bash -c "python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+    command: /bin/bash -c " 
+      while ! curl -X GET elasticsearch:9200/_cluster/health --silent;
+      do
+        sleep 1;
+      done;
+      
+      python manage.py makemigrations users && python manage.py makemigrations storage && python manage.py migrate && python manage.py runserver 0.0.0.0:5000"
+
     depends_on:
       - elasticsearch
+
+networks:
+  sia_network:
