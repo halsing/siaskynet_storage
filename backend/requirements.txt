@@ -8,7 +8,7 @@ Click==7.0
 curl==0.0.1
 Django==3.0.3
 django-debug-toolbar==2.2
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.4.0
 idna==2.9
 pathspec==0.7.0
