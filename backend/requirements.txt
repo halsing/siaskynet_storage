@@ -12,7 +12,7 @@ djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
 idna==2.9
 pathspec==0.7.0
-Pillow==7.0.0
+Pillow==9.3.0
 PyJWT==1.7.1
 pytz==2019.3
 regex==2020.2.20
